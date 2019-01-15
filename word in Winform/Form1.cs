@@ -15,10 +15,7 @@ namespace word_in_Winform
         public Form1()
         {
             InitializeComponent();
-
-
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             comboBoxFont.Items.AddRange(FontFamily.Families);
@@ -28,13 +25,19 @@ namespace word_in_Winform
                 comboBoxSize.Items.Add(i);
             }
             comboBoxSize.SelectedIndexChanged += ComboBoxSize_SelectedIndexChanged;
+            comboBoxFont.SelectedIndexChanged += ComboBoxFont_SelectedIndexChanged;
             comboBoxSize.SelectedIndex = 1;
+            comboBoxFont.SelectedIndex = 1;
+        }
+        private void ComboBoxFont_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            richTextBox1.SelectionFont = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text));
         }
 
         private void ComboBoxSize_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            richTextBox1.SelectionFont = new Font("Italic", int.Parse(comboBoxSize.Text));
+            richTextBox1.SelectionFont = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text));
 
         }
 
