@@ -147,6 +147,7 @@
             this.checkBoxBold.TabIndex = 4;
             this.checkBoxBold.Text = "B";
             this.checkBoxBold.UseVisualStyleBackColor = true;
+            this.checkBoxBold.CheckedChanged += new System.EventHandler(this.checkBoxBold_CheckedChanged);
             // 
             // checkBoxUnderLine
             // 
