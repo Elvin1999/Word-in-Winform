@@ -23,11 +23,19 @@ namespace word_in_Winform
         {
             comboBoxFont.Items.AddRange(FontFamily.Families);
             comboBoxFont.DisplayMember = "Name";
-            for (int i = 1; i < 100; i += 5)
+            for (int i = 14; i < 100; i += 5)
             {
                 comboBoxSize.Items.Add(i);
             }
-            
+            comboBoxSize.SelectedIndexChanged += ComboBoxSize_SelectedIndexChanged;
+            comboBoxSize.SelectedIndex = 1;
+        }
+
+        private void ComboBoxSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            richTextBox1.SelectionFont = new Font("Italic", int.Parse(comboBoxSize.Text));
+
         }
 
         private void button1_Click(object sender, EventArgs e)
