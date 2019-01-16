@@ -52,8 +52,10 @@ namespace word_in_Winform
             }
         }
         FontStyle oldstyle = FontStyle.Regular;
+        FontStyle oldstyle2 = FontStyle.Regular;
         private void CheckBoxBold_CheckedChanged(object sender, EventArgs e)
         {
+            oldstyle2 = richTextBox1.SelectionFont.Style;
             if (checkBoxBold.Checked)
             {
                 oldstyle = oldstyle | FontStyle.Bold;
@@ -62,6 +64,15 @@ namespace word_in_Winform
             {
                 oldstyle = oldstyle & ~FontStyle.Bold;
             }
+            for (int i = richTextBox1.SelectionStart; i < richTextBox1.SelectionLength+ richTextBox1.SelectionStart; i++)
+            {
+                richTextBox1.Select(i, 1);
+                if (!richTextBox1.SelectionFont.Bold)
+                {
+                    richTextBox1.SelectionFont = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text), oldstyle2 | FontStyle.Bold);
+                }
+            }
+
             richTextBox1.SelectionFont = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text),
                 oldstyle);
         }
@@ -136,7 +147,7 @@ namespace word_in_Winform
 
         private void textboxLoad_Leave(object sender, EventArgs e)
         {
-            if(textboxLoad.Text == String.Empty)
+            if (textboxLoad.Text == String.Empty)
             {
                 textboxLoad.Text = "Load some data from file rtf";
             }
