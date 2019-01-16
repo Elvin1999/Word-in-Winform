@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,12 +16,11 @@ namespace word_in_Winform
         public Form1()
         {
             InitializeComponent();
+            oldstyle = richTextBox1.SelectionFont.Style;
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-
             //richTextBox1.Font = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text), FontStyle.Bold);
-
             comboBoxFont.Items.AddRange(FontFamily.Families);
             comboBoxFont.DisplayMember = "Name";
             for (int i = 14; i < 100; i += 5)
@@ -35,52 +33,41 @@ namespace word_in_Winform
             checkBoxItalic.CheckedChanged += CheckBoxItalic_CheckedChanged;
             comboBoxSize.SelectedIndex = 1;
             comboBoxFont.SelectedIndex = 1;
-
         }
         private void CheckBoxItalic_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxItalic.Checked)
             {
-                richTextBox1.SelectionFont = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text), FontStyle.Italic);
-            }
-            else if (checkBoxBold.Checked && checkBoxItalic.Checked)
-            {
-                richTextBox1.SelectionFont = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text),
-                    FontStyle.Italic | FontStyle.Bold);
+                oldstyle = oldstyle | FontStyle.Italic;
             }
             else
             {
-                richTextBox1.SelectionFont = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text));
+                oldstyle = oldstyle & FontStyle.Italic;
             }
+            richTextBox1.SelectionFont = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text),
+                oldstyle|FontStyle.Italic);
         }
         FontStyle oldstyle = FontStyle.Regular;
         private void CheckBoxBold_CheckedChanged(object sender, EventArgs e)
         {
-            oldstyle = richTextBox1.SelectionFont.Style;
             if (checkBoxBold.Checked)
             {
-                richTextBox1.SelectionFont = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text), FontStyle.Bold);
-            }
-            else if (checkBoxBold.Checked && checkBoxItalic.Checked)
-            {
-                richTextBox1.SelectionFont = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text), oldstyle
-                  | FontStyle.Bold);
+                oldstyle = oldstyle | FontStyle.Bold;
             }
             else
             {
-                richTextBox1.SelectionFont = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text));
+                oldstyle = oldstyle & FontStyle.Bold;
             }
+            richTextBox1.SelectionFont = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text),
+                oldstyle);
         }
         private void ComboBoxFont_SelectedIndexChanged(object sender, EventArgs e)
         {
             richTextBox1.SelectionFont = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text));
         }
-
         private void ComboBoxSize_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             richTextBox1.SelectionFont = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text));
-
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -91,19 +78,43 @@ namespace word_in_Winform
                 richTextBox1.SelectionColor = colorDialog.Color;
             }
         }
-        private void checkBoxBold_CheckedChanged(object sender, EventArgs e)
-        {
-        }
         public string Filename { get; set; }
         private void buttonLoad_Click(object sender, EventArgs e)
         {
             richTextBox1.Text = File.ReadAllText(Filename);
         }
-
         private void buttonSave_Click(object sender, EventArgs e)
         {
             Filename = textBoxSave.Text;
             File.WriteAllText(Filename, richTextBox1.Text);
+        }
+        private void checkBoxUnderLine_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxBold.Checked)
+            {
+                oldstyle = oldstyle | FontStyle.Underline;
+            }
+            else
+            {
+                oldstyle = oldstyle & FontStyle.Underline;
+            }
+            richTextBox1.SelectionFont = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text),
+                oldstyle);
+        }
+
+        private void checkLeft_CheckedChanged(object sender, EventArgs e)
+        {
+            richTextBox1.SelectionAlignment = HorizontalAlignment.Left;
+        }
+
+        private void checkBoxCenter_CheckedChanged(object sender, EventArgs e)
+        {
+            richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
+        }
+
+        private void checkBoxRight_CheckedChanged(object sender, EventArgs e)
+        {
+            richTextBox1.SelectionAlignment = HorizontalAlignment.Right;
         }
     }
 }

@@ -46,7 +46,7 @@
             this.checkBoxRight = new System.Windows.Forms.CheckBox();
             this.comboBoxFont = new System.Windows.Forms.ComboBox();
             this.comboBoxSize = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonSelect = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -149,7 +149,6 @@
             this.checkBoxBold.TabIndex = 4;
             this.checkBoxBold.Text = "B";
             this.checkBoxBold.UseVisualStyleBackColor = true;
-            this.checkBoxBold.CheckedChanged += new System.EventHandler(this.checkBoxBold_CheckedChanged);
             // 
             // checkBoxUnderLine
             // 
@@ -161,6 +160,7 @@
             this.checkBoxUnderLine.TabIndex = 4;
             this.checkBoxUnderLine.Text = "U";
             this.checkBoxUnderLine.UseVisualStyleBackColor = true;
+            this.checkBoxUnderLine.CheckedChanged += new System.EventHandler(this.checkBoxUnderLine_CheckedChanged);
             // 
             // checkBoxItalic
             // 
@@ -172,6 +172,7 @@
             this.checkBoxItalic.TabIndex = 4;
             this.checkBoxItalic.Text = "I";
             this.checkBoxItalic.UseVisualStyleBackColor = true;
+            this.checkBoxItalic.CheckedChanged += new System.EventHandler(this.CheckBoxItalic_CheckedChanged);
             // 
             // checkLeft
             // 
@@ -183,6 +184,7 @@
             this.checkLeft.TabIndex = 4;
             this.checkLeft.Text = "L";
             this.checkLeft.UseVisualStyleBackColor = true;
+            this.checkLeft.CheckedChanged += new System.EventHandler(this.checkLeft_CheckedChanged);
             // 
             // checkBoxCenter
             // 
@@ -194,6 +196,7 @@
             this.checkBoxCenter.TabIndex = 4;
             this.checkBoxCenter.Text = "C";
             this.checkBoxCenter.UseVisualStyleBackColor = true;
+            this.checkBoxCenter.CheckedChanged += new System.EventHandler(this.checkBoxCenter_CheckedChanged);
             // 
             // checkBoxRight
             // 
@@ -205,6 +208,7 @@
             this.checkBoxRight.TabIndex = 4;
             this.checkBoxRight.Text = "R";
             this.checkBoxRight.UseVisualStyleBackColor = true;
+            this.checkBoxRight.CheckedChanged += new System.EventHandler(this.checkBoxRight_CheckedChanged);
             // 
             // comboBoxFont
             // 
@@ -224,23 +228,23 @@
             this.comboBoxSize.Size = new System.Drawing.Size(66, 21);
             this.comboBoxSize.TabIndex = 5;
             // 
-            // button1
+            // buttonSelect
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(442, 50);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(83, 25);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Select";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSelect.Location = new System.Drawing.Point(442, 50);
+            this.buttonSelect.Name = "buttonSelect";
+            this.buttonSelect.Size = new System.Drawing.Size(83, 25);
+            this.buttonSelect.TabIndex = 6;
+            this.buttonSelect.Text = "Select";
+            this.buttonSelect.UseVisualStyleBackColor = true;
+            this.buttonSelect.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 473);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonSelect);
             this.Controls.Add(this.comboBoxSize);
             this.Controls.Add(this.comboBoxFont);
             this.Controls.Add(this.checkBoxRight);
@@ -288,7 +292,7 @@
         private System.Windows.Forms.CheckBox checkBoxRight;
         private System.Windows.Forms.ComboBox comboBoxFont;
         private System.Windows.Forms.ComboBox comboBoxSize;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonSelect;
     }
 }
 
