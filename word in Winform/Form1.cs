@@ -53,6 +53,7 @@ namespace word_in_Winform
         }
         FontStyle oldstyle = FontStyle.Regular;
         FontStyle oldstyle2 = FontStyle.Regular;
+
         private void CheckBoxBold_CheckedChanged(object sender, EventArgs e)
         {
             oldstyle2 = richTextBox1.SelectionFont.Style;
@@ -64,7 +65,9 @@ namespace word_in_Winform
             {
                 oldstyle = oldstyle & ~FontStyle.Bold;
             }
-            for (int i = richTextBox1.SelectionStart; i < richTextBox1.SelectionLength+ richTextBox1.SelectionStart; i++)
+            int index = richTextBox1.SelectionLength;
+            int starti = richTextBox1.SelectionStart;
+            for (int i = starti; i < index+ starti; i++)
             {
                 richTextBox1.Select(i, 1);
                 if (!richTextBox1.SelectionFont.Bold)
