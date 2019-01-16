@@ -20,7 +20,6 @@ namespace word_in_Winform
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            //richTextBox1.Font = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text), FontStyle.Bold);
             comboBoxFont.Items.AddRange(FontFamily.Families);
             comboBoxFont.DisplayMember = "Name";
             for (int i = 14; i < 100; i += 5)
@@ -42,10 +41,10 @@ namespace word_in_Winform
             }
             else
             {
-                oldstyle = oldstyle & FontStyle.Italic;
+                oldstyle = oldstyle & ~FontStyle.Italic;
             }
             richTextBox1.SelectionFont = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text),
-                oldstyle|FontStyle.Italic);
+                oldstyle);
         }
         FontStyle oldstyle = FontStyle.Regular;
         private void CheckBoxBold_CheckedChanged(object sender, EventArgs e)
@@ -56,7 +55,7 @@ namespace word_in_Winform
             }
             else
             {
-                oldstyle = oldstyle & FontStyle.Bold;
+                oldstyle = oldstyle & ~FontStyle.Bold;
             }
             richTextBox1.SelectionFont = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text),
                 oldstyle);
@@ -90,13 +89,13 @@ namespace word_in_Winform
         }
         private void checkBoxUnderLine_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBoxBold.Checked)
+            if (checkBoxUnderLine.Checked)
             {
                 oldstyle = oldstyle | FontStyle.Underline;
             }
             else
             {
-                oldstyle = oldstyle & FontStyle.Underline;
+                oldstyle = oldstyle & ~FontStyle.Underline;
             }
             richTextBox1.SelectionFont = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text),
                 oldstyle);
