@@ -1,13 +1,14 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace word_in_Winform
 {
     public partial class Form1 : Form
@@ -36,7 +37,6 @@ namespace word_in_Winform
             comboBoxFont.SelectedIndex = 1;
 
         }
-
         private void CheckBoxItalic_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxItalic.Checked)
@@ -48,7 +48,6 @@ namespace word_in_Winform
                 richTextBox1.SelectionFont = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text),
                     FontStyle.Italic | FontStyle.Bold);
             }
-
             else
             {
                 richTextBox1.SelectionFont = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text));
@@ -64,17 +63,14 @@ namespace word_in_Winform
             }
             else if (checkBoxBold.Checked && checkBoxItalic.Checked)
             {
-
                 richTextBox1.SelectionFont = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text), oldstyle
                   | FontStyle.Bold);
             }
-
             else
             {
                 richTextBox1.SelectionFont = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text));
             }
         }
-
         private void ComboBoxFont_SelectedIndexChanged(object sender, EventArgs e)
         {
             richTextBox1.SelectionFont = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text));
@@ -95,11 +91,19 @@ namespace word_in_Winform
                 richTextBox1.SelectionColor = colorDialog.Color;
             }
         }
-
         private void checkBoxBold_CheckedChanged(object sender, EventArgs e)
         {
-
+        }
+        public string Filename { get; set; }
+        private void buttonLoad_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text = File.ReadAllText(Filename);
         }
 
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            Filename = textBoxSave.Text;
+            File.WriteAllText(Filename, richTextBox1.Text);
+        }
     }
 }

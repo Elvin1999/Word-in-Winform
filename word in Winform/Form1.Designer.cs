@@ -34,8 +34,8 @@
             this.labelFontstyle = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.labelColor = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textboxLoad = new System.Windows.Forms.TextBox();
+            this.textBoxSave = new System.Windows.Forms.TextBox();
             this.buttonLoad = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.checkBoxBold = new System.Windows.Forms.CheckBox();
@@ -103,19 +103,19 @@
             this.labelColor.TabIndex = 1;
             this.labelColor.Text = "Color";
             // 
-            // textBox1
+            // textboxLoad
             // 
-            this.textBox1.Location = new System.Drawing.Point(564, 22);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(140, 20);
-            this.textBox1.TabIndex = 2;
+            this.textboxLoad.Location = new System.Drawing.Point(564, 22);
+            this.textboxLoad.Name = "textboxLoad";
+            this.textboxLoad.Size = new System.Drawing.Size(140, 20);
+            this.textboxLoad.TabIndex = 2;
             // 
-            // textBox2
+            // textBoxSave
             // 
-            this.textBox2.Location = new System.Drawing.Point(564, 48);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(140, 20);
-            this.textBox2.TabIndex = 2;
+            this.textBoxSave.Location = new System.Drawing.Point(564, 48);
+            this.textBoxSave.Name = "textBoxSave";
+            this.textBoxSave.Size = new System.Drawing.Size(140, 20);
+            this.textBoxSave.TabIndex = 2;
             // 
             // buttonLoad
             // 
@@ -126,6 +126,7 @@
             this.buttonLoad.TabIndex = 3;
             this.buttonLoad.Text = "Load";
             this.buttonLoad.UseVisualStyleBackColor = true;
+            this.buttonLoad.Click += new System.EventHandler(this.buttonLoad_Click);
             // 
             // buttonSave
             // 
@@ -136,6 +137,7 @@
             this.buttonSave.TabIndex = 3;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // checkBoxBold
             // 
@@ -206,6 +208,7 @@
             // 
             // comboBoxFont
             // 
+            this.comboBoxFont.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFont.FormattingEnabled = true;
             this.comboBoxFont.Location = new System.Drawing.Point(16, 52);
             this.comboBoxFont.Name = "comboBoxFont";
@@ -214,6 +217,7 @@
             // 
             // comboBoxSize
             // 
+            this.comboBoxSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSize.FormattingEnabled = true;
             this.comboBoxSize.Location = new System.Drawing.Point(119, 52);
             this.comboBoxSize.Name = "comboBoxSize";
@@ -247,8 +251,8 @@
             this.Controls.Add(this.checkBoxBold);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonLoad);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxSave);
+            this.Controls.Add(this.textboxLoad);
             this.Controls.Add(this.labelColor);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.labelFontstyle);
@@ -272,8 +276,8 @@
         private System.Windows.Forms.Label labelFontstyle;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label labelColor;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textboxLoad;
+        private System.Windows.Forms.TextBox textBoxSave;
         private System.Windows.Forms.Button buttonLoad;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.CheckBox checkBoxBold;
