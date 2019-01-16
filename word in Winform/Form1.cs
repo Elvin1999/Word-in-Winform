@@ -45,6 +45,11 @@ namespace word_in_Winform
             }
             richTextBox1.SelectionFont = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text),
                 oldstyle);
+            var array = richTextBox1.Text.ToCharArray();
+            for (int i = richTextBox1.SelectionStart; i < richTextBox1.SelectionLength; i++)
+            {
+
+            }
         }
         FontStyle oldstyle = FontStyle.Regular;
         private void CheckBoxBold_CheckedChanged(object sender, EventArgs e)
@@ -114,6 +119,46 @@ namespace word_in_Winform
         private void checkBoxRight_CheckedChanged(object sender, EventArgs e)
         {
             richTextBox1.SelectionAlignment = HorizontalAlignment.Right;
+        }
+
+
+        private void textboxLoad_Enter_1(object sender, EventArgs e)
+        {
+            if (textboxLoad.Text != String.Empty)
+            {
+                textboxLoad.Text = String.Empty;
+            }
+            else
+            {
+                textboxLoad.Text = "Load some data from file rtf";
+            }
+        }
+
+        private void textboxLoad_Leave(object sender, EventArgs e)
+        {
+            if(textboxLoad.Text == String.Empty)
+            {
+                textboxLoad.Text = "Load some data from file rtf";
+            }
+        }
+        private void textBoxSave_Enter(object sender, EventArgs e)
+        {
+            if (textBoxSave.Text != String.Empty)
+            {
+                textBoxSave.Text = String.Empty;
+            }
+            else
+            {
+                textBoxSave.Text = "Save some data to file .rtf";
+            }
+        }
+
+        private void textBoxSave_Leave(object sender, EventArgs e)
+        {
+            if (textBoxSave.Text == String.Empty)
+            {
+                textBoxSave.Text = "Save some data to file .rtf";
+            }
         }
     }
 }

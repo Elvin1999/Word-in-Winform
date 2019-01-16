@@ -105,17 +105,27 @@
             // 
             // textboxLoad
             // 
+            this.textboxLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textboxLoad.ForeColor = System.Drawing.Color.Gray;
             this.textboxLoad.Location = new System.Drawing.Point(564, 22);
             this.textboxLoad.Name = "textboxLoad";
             this.textboxLoad.Size = new System.Drawing.Size(140, 20);
             this.textboxLoad.TabIndex = 2;
+            this.textboxLoad.Text = "Load some data from file .rtf";
+            this.textboxLoad.Enter += new System.EventHandler(this.textboxLoad_Enter_1);
+            this.textboxLoad.Leave += new System.EventHandler(this.textboxLoad_Leave);
             // 
             // textBoxSave
             // 
+            this.textBoxSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxSave.ForeColor = System.Drawing.Color.Gray;
             this.textBoxSave.Location = new System.Drawing.Point(564, 48);
             this.textBoxSave.Name = "textBoxSave";
             this.textBoxSave.Size = new System.Drawing.Size(140, 20);
             this.textBoxSave.TabIndex = 2;
+            this.textBoxSave.Text = "Save some data to file .rtf";
+            this.textBoxSave.Enter += new System.EventHandler(this.textBoxSave_Enter);
+            this.textBoxSave.Leave += new System.EventHandler(this.textBoxSave_Leave);
             // 
             // buttonLoad
             // 
