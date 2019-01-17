@@ -67,7 +67,7 @@ namespace word_in_Winform
             }
             int index = richTextBox1.SelectionLength;
             int starti = richTextBox1.SelectionStart;
-            for (int i = starti; i < index+ starti; i++)
+            for (int i = starti; i < index + starti; i++)
             {
                 richTextBox1.Select(i, 1);
                 if (!richTextBox1.SelectionFont.Bold)
@@ -99,7 +99,15 @@ namespace word_in_Winform
         public string Filename { get; set; }
         private void buttonLoad_Click(object sender, EventArgs e)
         {
-            richTextBox1.Text = File.ReadAllText(Filename);
+            if (File.Exists(Filename))
+            {
+                richTextBox1.Text = File.ReadAllText(Filename);
+            }
+            else
+            {
+                MessageBox.Show($"This file - >{Filename} did not find");
+            }
+
         }
         private void buttonSave_Click(object sender, EventArgs e)
         {
