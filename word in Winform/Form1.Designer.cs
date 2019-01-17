@@ -228,6 +228,7 @@
             this.comboBoxFont.Name = "comboBoxFont";
             this.comboBoxFont.Size = new System.Drawing.Size(97, 21);
             this.comboBoxFont.TabIndex = 5;
+           
             // 
             // comboBoxSize
             // 

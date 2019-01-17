@@ -43,20 +43,26 @@ namespace word_in_Winform
             {
                 oldstyle = oldstyle & ~FontStyle.Italic;
             }
+            int index = richTextBox1.SelectionLength;
+            int starti = richTextBox1.SelectionStart;
+            for (int i = starti; i <= index + starti; i++)
+            {
+                richTextBox1.Select(i, 1);
+                if (!richTextBox1.SelectionFont.Italic)
+                {
+                    richTextBox1.SelectionFont = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text), oldstyle2 | FontStyle.Italic);
+                }
+            }
             richTextBox1.SelectionFont = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text),
                 oldstyle);
-            var array = richTextBox1.Text.ToCharArray();
-            for (int i = richTextBox1.SelectionStart; i < richTextBox1.SelectionLength; i++)
-            {
-
-            }
+           
         }
         FontStyle oldstyle = FontStyle.Regular;
         FontStyle oldstyle2 = FontStyle.Regular;
 
         private void CheckBoxBold_CheckedChanged(object sender, EventArgs e)
         {
-            oldstyle2 = richTextBox1.SelectionFont.Style;
+            
             if (checkBoxBold.Checked)
             {
                 oldstyle = oldstyle | FontStyle.Bold;
@@ -67,7 +73,7 @@ namespace word_in_Winform
             }
             int index = richTextBox1.SelectionLength;
             int starti = richTextBox1.SelectionStart;
-            for (int i = starti; i < index + starti; i++)
+            for (int i = starti; i <=index + starti; i++)
             {
                 richTextBox1.Select(i, 1);
                 if (!richTextBox1.SelectionFont.Bold)
@@ -123,6 +129,16 @@ namespace word_in_Winform
             else
             {
                 oldstyle = oldstyle & ~FontStyle.Underline;
+            }
+            int index = richTextBox1.SelectionLength;
+            int starti = richTextBox1.SelectionStart;
+            for (int i = starti; i <= index + starti; i++)
+            {
+                richTextBox1.Select(i, 1);
+                if (!richTextBox1.SelectionFont.Underline)
+                {
+                    richTextBox1.SelectionFont = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text), oldstyle2 | FontStyle.Underline);
+                }
             }
             richTextBox1.SelectionFont = new Font(comboBoxFont.Text, int.Parse(comboBoxSize.Text),
                 oldstyle);
